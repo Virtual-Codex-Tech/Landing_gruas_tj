@@ -1,0 +1,39 @@
+.container-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-logo img {
+    width: 60px;
+    height: 50px;
+}
+
+.container-logo h2 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 650;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-bottom: rgb(82, 82, 82) 1px solid;
+}
+
+.container-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.container-links a:hover {
+    color: #f2ad0d;
+}
+
+
+
