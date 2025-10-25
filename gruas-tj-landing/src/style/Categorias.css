@@ -1,0 +1,67 @@
+.categorias-container {
+  color: #fff;
+  text-align: center;
+  padding: 2rem 2rem;
+}
+
+.categorias-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.categorias-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+/* Tarjeta individual */
+.categoria-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  padding: 1.3rem;
+  width: 180px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.categoria-card:hover {
+  transform: translateY(-6px);
+  background-color: #242424;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Iconos */
+.icono {
+  background-color: rgba(255, 191, 0, 0.1);
+  border: 2px solid rgba(255, 191, 0, 0.3);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #ffbf00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Texto */
+.categoria-card p {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .categorias-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .categoria-card {
+    width: 220px;
+    margin: 0 auto;
+  }
+}
