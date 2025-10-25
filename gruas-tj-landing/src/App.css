@@ -3,3 +3,7 @@
   font-weight: 800;
   letter-spacing: 1px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
