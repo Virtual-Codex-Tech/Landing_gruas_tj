@@ -1,0 +1,59 @@
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    width: 100%;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 14px;
+    width: 70%;
+    height: 70vh;
+    object-fit: cover;
+        filter: brightness(0.7); /* 0.7 = 70% de brillo, 0.5 = 50%, etc. */
+}
+
+.button-overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.button-overlay button {
+    font-size: 18px;
+    min-width: 200px;
+    height: 60px;
+}
+.text-container{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+.text-principal{
+    color: white;
+    font-size: 4em;
+    font-weight: bold;
+}
+.button{
+    margin-top: 4%;
+}
+p{
+    color: white;
+    text-align: center;
+}

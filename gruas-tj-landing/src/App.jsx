@@ -1,6 +1,7 @@
-import { useState } from 'react'
 import { MantineProvider } from '@mantine/core'
+import Buttons from './ui/buttons'
 import Navbar from './components/Navbar'
+import Banner from './components/banner'
 import './App.css'
 
 function App() {
@@ -9,6 +10,9 @@ function App() {
       <header>
         <Navbar />
       </header>
+      <section className='inicio'>
+      <Banner/>
+      </section>
     </MantineProvider>
   )
 }
