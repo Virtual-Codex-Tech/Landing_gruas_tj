@@ -1,5 +1,7 @@
 import { MantineProvider } from '@mantine/core'
+import Buttons from './ui/buttons'
 import Navbar from './components/Navbar'
+import Banner from './components/banner'
 import Somos from './components/Somos'
 import Servicios from './components/Servicios'
 import Categorias from './components/Categorias'
@@ -13,6 +15,9 @@ function App() {
       <header>
         <Navbar />
       </header>
+      <section className='inicio'>
+      <Banner/>
+      </section>
       <section id='somos'>
         <Somos />
       </section>

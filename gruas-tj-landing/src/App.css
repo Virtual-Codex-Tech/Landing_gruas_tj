@@ -4,6 +4,10 @@
   letter-spacing: 1px;
 }
 
-html {
-  scroll-behavior: smooth;
+.inicio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura completa de la ventana */
+  width: 100%;
 }
