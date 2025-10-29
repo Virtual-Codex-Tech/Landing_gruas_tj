@@ -16,10 +16,11 @@
 }
 
 nav {
+    position: fixed;
     display: flex;
+    width: 98%;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
     border-bottom: rgb(82, 82, 82) 1px solid;
 }
 
