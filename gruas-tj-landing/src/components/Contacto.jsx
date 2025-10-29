@@ -17,7 +17,7 @@ export default function Contacto() {
             <Phone size={22} />
             <div>
               <h4>Teléfono</h4>
-              <p>+57 123 456 7890</p>
+              <p>+57 3227902333</p>
             </div>
           </div>
 
@@ -25,7 +25,7 @@ export default function Contacto() {
             <Mail size={22} />
             <div>
               <h4>Email</h4>
-              <p>contacto@gruasjtservice.com</p>
+              <p>GRUASTJSERVICE</p><p>@GMAIL.COM</p>
             </div>
           </div>
 
@@ -33,7 +33,8 @@ export default function Contacto() {
             <MapPin size={22} />
             <div>
               <h4>Ubicación</h4>
-              <p>Bogotá, Colombia</p>
+              <p>Cúcuta, CALLE 12 AN 9A 19 CARLOS
+              PIZARRO, Colombia</p>
             </div>
           </div>
         </div>

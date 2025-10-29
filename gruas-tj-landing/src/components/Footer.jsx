@@ -12,8 +12,8 @@ export default function Footer() {
       </div>
 
       <div className="footer-right">
-        <span>+57 123 456 7890</span>
-        <span>contacto@gruasjtservice.com</span>
+        <span>+57 3144067868</span>
+        <span>GRUASTJSERVICE@GMAIL.COM</span>
       </div>
     </footer>
   );
