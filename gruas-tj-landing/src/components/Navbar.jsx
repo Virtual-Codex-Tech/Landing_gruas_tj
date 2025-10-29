@@ -11,9 +11,9 @@ export default function Navbar() {
             </div>
             <div className="container-links">
                 <a href="#">Inicio</a>
-                <a href="#">Servicios</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Contacto</a>
+                <a href="#somos">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
             </div>
         </nav>
     )
