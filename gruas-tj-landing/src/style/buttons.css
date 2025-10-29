@@ -1,11 +1,26 @@
 
 
-.button{
+.button {
     font-weight: bold;
-    font-size:  1.2em;
-    border-radius: 14px;
-    width: 30%;
-    height: 6vh;
+    font-size: clamp(1em, 2vw, 1.2em);
+    border-radius: clamp(8px, 2vw, 14px);
+    width: clamp(200px, 30%, 300px);
+    height: clamp(40px, 6vh, 60px);
     color: black;
     background-color: #facd02;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    background-color: #f2ad0d;
+}
+
+@media (max-width: 480px) {
+    .button {
+        width: 90%;
+        max-width: 250px;
+    }
 }

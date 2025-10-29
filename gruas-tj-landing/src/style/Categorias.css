@@ -1,20 +1,24 @@
 .categorias-container {
   color: #fff;
   text-align: center;
-  padding: 2rem 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .categorias-container h2 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
 }
 
 .categorias-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: clamp(1rem, 3vw, 2.5rem);
+  width: 100%;
+  padding: 1rem;
 }
 
 /* Tarjeta individual */
@@ -22,9 +26,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 16px;
-  padding: 1.3rem;
-  width: 180px;
+  border-radius: clamp(12px, 2vw, 16px);
+  padding: clamp(1rem, 2vw, 1.3rem);
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 

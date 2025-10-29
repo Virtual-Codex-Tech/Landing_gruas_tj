@@ -2,17 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .somos-container h2 {
-  font-size: 2.3rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  margin-bottom: clamp(0.8rem, 2vw, 1rem);
+  text-align: center;
 }
 
 .somos-container p {
-  max-width: 800px;
-  font-weight:normal;
+  max-width: min(800px, 90%);
+  font-weight: normal;
   line-height: 1.6;
   text-align: center;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  padding: 0 clamp(10px, 2vw, 20px);
+}
+
+@media (max-width: 480px) {
+  .somos-container {
+    padding: 1rem;
+  }
 }

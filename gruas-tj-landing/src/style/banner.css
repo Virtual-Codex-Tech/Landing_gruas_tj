@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    padding-top: 80px; /* Espacio para el navbar */
 }
 
 .image-container {
@@ -10,6 +11,9 @@
     position: relative;
     align-items: center;
     width: 100%;
+    max-width: 1200px; /* Limitar el ancho máximo */
+    margin: 0 auto;
+    padding: 0 20px; /* Padding en los lados */
 }
 
 .img{
@@ -17,10 +21,11 @@
     justify-content: center;
     position: relative;
     border-radius: 14px;
-    width: 70%;
-    height: 70vh;
+    width: 100%;
+    height: calc(100vh - 100px); /* Altura adaptativa */
+    max-height: 800px; /* Altura máxima */
     object-fit: cover;
-        filter: brightness(0.7); /* 0.7 = 70% de brillo, 0.5 = 50%, etc. */
+    filter: brightness(0.7);
 }
 
 .button-overlay {
@@ -29,31 +34,44 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    top: 51%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+    width: 90%;
+    max-width: 1200px;
+    padding: 0 20px;
 }
 
 .button-overlay button {
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     min-width: 200px;
     height: 60px;
 }
+
 .text-container{
     flex-direction: column;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
+
 .text-principal{
     color: white;
-    font-size: 4em;
+    font-size: clamp(2em, 5vw, 4em);
     font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
 }
+
 .button{
     margin-top: 4%;
 }
+
 p{
     color: white;
     text-align: center;
+    font-size: clamp(16px, 2vw, 18px);
+    max-width: 800px;
+    margin: 0 auto;
 }
