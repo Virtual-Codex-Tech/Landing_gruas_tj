@@ -26,8 +26,8 @@ export default function Contacto() {
     setEstado("");
 
     try {
-      // Llamar al backend Node (cambia localhost por tu dominio en producción)
-      const res = await fetch("https://servemail.vercel.app//send-email", {
+      // ✅ URL CORREGIDA - elimina el doble slash
+      const res = await fetch("https://servemail.vercel.app/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export default function Contacto() {
         setEstado("✅ Mensaje enviado correctamente.");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setEstado("❌ Error al enviar el mensaje. Intenta nuevamente.");
+        setEstado("❌ Error: " + (data.error || "Intenta nuevamente."));
       }
     } catch (err) {
       console.error(err);
@@ -95,6 +95,7 @@ export default function Contacto() {
             value={formData.name}
             onChange={handleChange}
             required
+            disabled={enviando}
           />
           <input
             type="email"
@@ -103,6 +104,7 @@ export default function Contacto() {
             value={formData.email}
             onChange={handleChange}
             required
+            disabled={enviando}
           />
           <textarea
             name="message"
@@ -111,6 +113,7 @@ export default function Contacto() {
             value={formData.message}
             onChange={handleChange}
             required
+            disabled={enviando}
           ></textarea>
 
           <button type="submit" disabled={enviando}>

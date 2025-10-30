@@ -1,25 +1,23 @@
-import nodemailer from 'nodemailer';
 import process from 'process'
 
+import nodemailer from 'nodemailer';
+
 export default async function handler(req, res) {
-  // Configurar CORS manualmente para Vercel
+  // Configurar CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-  // Manejar preflight OPTIONS request
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
-  // Solo permitir POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
   const { name, email, message } = req.body;
 
-  // Validación
   if (!name || !email || !message) {
     return res.status(400).json({
       success: false,
@@ -28,7 +26,6 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Configuración Gmail para Vercel
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
