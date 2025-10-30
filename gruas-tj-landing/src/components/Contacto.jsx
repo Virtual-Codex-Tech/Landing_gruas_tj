@@ -27,7 +27,7 @@ export default function Contacto() {
 
     try {
       // Llamar al backend Node (cambia localhost por tu dominio en producción)
-      const res = await fetch("http://localhost:5000/send-email", {
+      const res = await fetch("https://servemail.vercel.app//send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
