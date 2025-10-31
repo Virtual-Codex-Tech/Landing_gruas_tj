@@ -3,73 +3,49 @@ import "../style/Contacto.css";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Contacto() {
+  // Estado del formulario
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
+  // Estado de envío
   const [enviando, setEnviando] = useState(false);
   const [estado, setEstado] = useState("");
 
+  // Manejar cambios de los inputs
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Manejar envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEnviando(true);
     setEstado("");
 
-    // Validaciones
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setEstado("❌ Por favor, completa todos los campos.");
-      setEnviando(false);
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setEstado("❌ Por favor, ingresa un email válido.");
-      setEnviando(false);
-      return;
-    }
-
-    if (formData.message.trim().length < 10) {
-      setEstado("❌ El mensaje debe tener al menos 10 caracteres.");
-      setEnviando(false);
-      return;
-    }
-
     try {
-      const formDataToSend = new FormData();
-      formDataToSend.append('Nombre', formData.name);
-      formDataToSend.append('Enviado desde', formData.email);
-      formDataToSend.append('Mensaje enviado', formData.message);
-      formDataToSend.append('_subject', `Nuevo mensaje de ${formData.name} - Grúas TJ Service`);
-      formDataToSend.append('_replyto', formData.email);
-      
-      // Configuración para personalizar el email
-      formDataToSend.append('_cc', formData.email); // Enviar copia al usuario
-      formDataToSend.append('_autoresponse', 'Gracias por contactar a Grúas TJ Service. Te responderemos pronto.');
-
-      const res = await fetch('https://formsubmit.co/ajax/jdjjz19@gmail.com', {
-        method: 'POST',
-        body: formDataToSend,
+      // ✅ URL CORREGIDA - elimina el doble slash
+      const res = await fetch("https://servemail.vercel.app/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        setEstado("✅ Mensaje enviado correctamente. Te contactaremos pronto.");
+        setEstado("✅ Mensaje enviado correctamente.");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        throw new Error(data.message || 'Error en el envío');
+        setEstado("❌ Error: " + (data.error || "Intenta nuevamente."));
       }
-
-    } catch (error) {
-      console.error('Error al enviar:', error);
-      setEstado("❌ Error al enviar el mensaje. Intenta nuevamente.");
+    } catch (err) {
+      console.error(err);
+      setEstado("⚠️ No se pudo conectar con el servidor.");
     } finally {
       setEnviando(false);
     }
@@ -89,7 +65,7 @@ export default function Contacto() {
             <Phone size={22} />
             <div>
               <h4>Teléfono</h4>
-              <p>+57 322 790 2333</p>
+              <p>+57 322 790 2333 </p>
             </div>
           </div>
 
@@ -112,64 +88,40 @@ export default function Contacto() {
 
         {/* Formulario */}
         <form className="contacto-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              name="name"
-              placeholder="Nombre completo"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              disabled={enviando}
-              minLength={2}
-            />
-          </div>
-
-          <div className="form-group">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email de contacto"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              disabled={enviando}
-            />
-          </div>
-
-          <div className="form-group">
-            <textarea
-              name="message"
-              placeholder="Describe tu solicitud o servicio requerido..."
-              rows="5"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              disabled={enviando}
-              minLength={10}
-            ></textarea>
-          </div>
-
-          <button 
-            type="submit" 
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            value={formData.name}
+            onChange={handleChange}
+            required
             disabled={enviando}
-            className={enviando ? 'enviando' : ''}
-          >
-            {enviando ? (
-              <>
-                <div className="spinner"></div>
-                Enviando...
-              </>
-            ) : (
-              "Enviar Mensaje"
-            )}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            disabled={enviando}
+          />
+          <textarea
+            name="message"
+            placeholder="Mensaje"
+            rows="4"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            disabled={enviando}
+          ></textarea>
+
+          <button type="submit" disabled={enviando}>
+            {enviando ? "Enviando..." : "Enviar Mensaje"}
           </button>
 
-          {estado && (
-            <div className={`mensaje-status ${estado.includes('✅') ? 'success' : 'error'}`}>
-              {estado}
-            </div>
-          )}
+          {/* Mensaje de estado */}
+          {estado && <p className="mensaje-status">{estado}</p>}
         </form>
       </div>
     </section>
