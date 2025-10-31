@@ -1,6 +1,6 @@
 import Buttons from '../ui/buttons'
 import '../style/banner.css'
-import Grua from '../assets/grua1.jpg'
+import Grua from '../assets/grua.jpg'
 
 export default function Banner(){
     return (
